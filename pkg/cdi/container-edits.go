@@ -311,14 +311,7 @@ func (m orderedMounts) Len() int {
 // mount indexed by parameter 1 is less than that of the mount indexed by
 // parameter 2. Used in sorting.
 func (m orderedMounts) Less(i, j int) bool {
-	ip, jp := m.parts(i), m.parts(j)
-	if ip < jp {
-		return true
-	}
-	if jp < ip {
-		return false
-	}
-	return m[i].Destination < m[j].Destination
+	return m.parts(i) < m.parts(j)
 }
 
 // Swap swaps two items in an array of mounts. Used in sorting
