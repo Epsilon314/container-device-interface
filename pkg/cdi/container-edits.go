@@ -291,7 +291,7 @@ func ensureOCIHooks(spec *oci.Spec) {
 func sortMounts(specgen *ocigen.Generator) {
 	mounts := specgen.Mounts()
 	specgen.ClearMounts()
-	sort.Sort(orderedMounts(mounts))
+	sort.Stable(orderedMounts(mounts))
 	specgen.Config.Mounts = mounts
 }
 
